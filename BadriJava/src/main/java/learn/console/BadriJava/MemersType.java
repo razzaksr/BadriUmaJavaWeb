@@ -27,6 +27,7 @@ class Flipkart
 	Long mobile;
 	Integer pin;
 	static Integer noOfOrders=0;
+	// no return no param
 	public void info()
 	{
 		System.out.println("Your name is "+this.username+" address "+this.address+" in "+this.pin+" of contact number "+this.mobile+" no of orders is "+this.noOfOrders);
