@@ -1,0 +1,21 @@
+Encapsulation: a standard class where data are private and methods are public
+	Netbanking: account>> acc holder, number, balance
+	Gpay	  : bank, google account
+	Billing	  : stock>> name, quantity, price
+	
+
+Constructor:
+	A method>> modifier returntype name(param)
+		name of the method can be anything
+		will execute when we call manually
+	Constructor/ special method>> modifier name(param)
+		name of contructor should same as Classname
+		will execute automatically when the object created for the class	
+	purpose:
+		to initialize class properties
+		execute the important operations before other could perform:
+			GPAY: bill pay, transfer,reacharge
+				login via pin>> they could have written in constructor
+	types:
+		default>> no parameters
+		parameterized>> with paramaters
