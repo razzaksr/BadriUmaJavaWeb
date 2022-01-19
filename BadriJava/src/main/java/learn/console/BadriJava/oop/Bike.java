@@ -23,7 +23,18 @@ public class Bike
 		this.quantity = quantity;
 		this.price = price;
 	}
-
+	
+	public Bike(String model, int year, int cc) {
+		this.model = model;
+		this.year = year;
+		this.cc = cc;
+	}
+	
+	public Bike(int milage, int quantity, double price) {
+		this.milage = milage;
+		this.quantity = quantity;
+		this.price = price;
+	}
 
 
 	// when ever object of bike class inside of sysout or assigning to string property
