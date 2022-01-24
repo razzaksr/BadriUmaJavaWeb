@@ -48,7 +48,7 @@ Inheritance: object reusability
 	
 	types:
 		single
-		multilevel
-		hierarchy
+		multilevel: P>>D1>>D2
+		hierarchy: D2<<P>>D1
 		multiple
 		hybrid
