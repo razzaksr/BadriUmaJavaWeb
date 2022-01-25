@@ -28,8 +28,11 @@ Polymorphsim:
 	parameters has to be different between each block by count, order and type
 		constructor, method
   Overriding/ dynamic/ run time:
-  	between two classes which involved in inheritance process
-  	parameters of those two methods from different class should be same
+  	between two components which involved in "inheritance process"
+  	parameter, name and returntype of a method from two components should be same
+  	
+  	overriding between class: not mandate
+  	overriding with interface: mandate
   	
 
 Inheritance: object reusability
@@ -39,7 +42,8 @@ Inheritance: object reusability
 	child/derived	 >>those who receives/ derive the property from some one
 	
 	Components those involves in inheritance process
-		class, interface
+		class: variables/object not mandate to initialize 
+		interface: variables/object has to be initialized and we cannot changes the values since those are all constants/ final
 	
 	keywords:
 		derivedclass extends baseclass

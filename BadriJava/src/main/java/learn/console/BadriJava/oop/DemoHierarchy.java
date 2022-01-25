@@ -4,10 +4,24 @@ public class DemoHierarchy
 {
 	public static void main(String[] args) 
 	{
-		PlayStore play=new PlayStore("badrigugai@gmail.com","badrinath","badri",8765567834L);
-		play.download("VLC", "badri@gmail.com", "badri");
-		play.download("Instagram", "badrigugai@gmail.com", "badri");
-		play.download("Orkut", "badrigugai@gmail.com", "badri");
+//		PlayStore play=new PlayStore("badrigugai@gmail.com","badrinath","badri",8765567834L);
+//		play.download("VLC", "badri@gmail.com", "badri");
+//		play.download("Instagram", "badrigugai@gmail.com", "badri");
+//		play.download("Orkut", "badrigugai@gmail.com", "badri");
+//		System.out.println(play);
+//		
+//		Drive dv=new Drive("umadevi@gmail.com", "SriUmaDevi", "uma", 876545678L);
+//		dv.share("UML", "kumaraganeshan@gmail.com");
+//		dv.share("SRS", "razakmohamed@yahoo.com");
+//		dv.share("Scrum", "rasheedha@gmail.com");
+//		System.out.println(dv);
+		
+		// Parent obj=new DeriveClass();
+		Google g=new PlayStore("razakmohamed@gmail.com", "Razak Mohamed", "razak", 87656789876L);
+		System.out.println(g);
+		
+		g=new Drive("razakmohamed@gmail.com", "Razak Mohamed", "razak", 87656789876L);
+		System.out.println(g);
 	}
 }
 
@@ -69,5 +83,41 @@ class PlayStore extends Google
 
 class Drive extends Google
 {
+	String[] files= {"Daily Report","FRS","SRS","UML","Test Plan","Test Design","Test Report","User Story","Epic","Bug Report","Test Summary"};
 	
+	public Drive() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public Drive(String username, String fullname, String password, Long contact) {
+		super(username, fullname, password, contact);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public void share(String specific,String to)
+	{
+		for(int index=0;index<files.length;index++)
+		{
+			if(specific.equalsIgnoreCase(files[index]))
+			{
+				System.out.println(files[index]+" found ");
+				if(to.endsWith("@gmail.com"))
+				{
+					System.out.println(files[index]+" shared to "+to+" by "+getUsername());
+					return;
+				}
+				else
+				{
+					System.out.println(to+" address is invalid");
+					return;
+				}
+			}
+		}
+		System.out.println(specific+" not found in "+ getUsername() +" drive");
+	}
 }
