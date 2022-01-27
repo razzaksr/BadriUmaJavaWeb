@@ -1,4 +1,5 @@
 Encapsulation: a standard class where data are private and methods are public
+	data hiding
 	Netbanking: account>> acc holder, number, balance
 	Gpay	  : bank, google account
 	Billing	  : stock>> name, quantity, price
@@ -48,11 +49,24 @@ Inheritance: object reusability
 	keywords:
 		derivedclass extends baseclass
 		derivedinterface extends baseinterface
-		derivedclass implements interface
+		derivedclass implements interface,interface,interface
 	
 	types:
-		single
+		single		: D<<P
 		multilevel: P>>D1>>D2
 		hierarchy: D2<<P>>D1
-		multiple
-		hybrid
+		multiple: D<<P1,P2,P3
+		hybrid: combination of more than form
+		
+Abstraction:
+	method logic/ body/definition hiding>> abstract method
+	
+	abstract class: hybrid form of class and interface
+		both abstract and non abstract methods can be members
+		can't make instantiation/ object to abstract class, the only way is inheritance
+		even though abstract methods can be created here, unlike interface we have to 
+			mention abstract keyword in front of methods that you desired to make abstract
+			
+		overriding from normal class during inheritance is not mandate
+		but it is mandate during inheritance with abstract class
+		
