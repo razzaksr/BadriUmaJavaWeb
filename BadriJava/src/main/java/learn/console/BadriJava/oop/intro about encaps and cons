@@ -69,4 +69,18 @@ Abstraction:
 			
 		overriding from normal class during inheritance is not mandate
 		but it is mandate during inheritance with abstract class
+
+
+Access Modifiers:
+	public		  >> class,method,object>> project level access
+	private(members)  >> class level access
+	protected(members)>> inheritance level access
+	default		  >> package level access
+	static(members)	  >> static members can be called without object/using 				classname itself
+	abstract	  >> class,method
+	final		  >> final class cannot be inherited
+			     final method cannot override
+			     final object/variable cannot change 
+
+
 		
