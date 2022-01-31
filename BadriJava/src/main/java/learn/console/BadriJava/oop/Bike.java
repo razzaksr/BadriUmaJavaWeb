@@ -2,7 +2,7 @@ package learn.console.BadriJava.oop;
 
 // model,year,cc,milage,price,quantity>> properties, data
 // private properties can be accessed by other members of same class not from outside>> data hide
-
+// POJO
 public class Bike 
 {
 	// class level member
