@@ -15,8 +15,21 @@ public class App
     	Product p3=new Product("15AC2022 Laptop", "Dell", 45, new String[] {"Grey","Silver","Black"}, 87600);
         CommerceController controller=new CommerceController();
         System.out.println(Arrays.toString(controller.available()));
-        System.out.println(controller.newStock(p1));System.out.println(controller.newStock(p2));
-        System.out.println(controller.newStock(p3));
+//        System.out.println(controller.newStock(p1));System.out.println(controller.newStock(p2));
+//        System.out.println(controller.newStock(p3));
+        
+        //Product p4=new Product("Sneakers", "Puma", 90, new String[] {"Black","White","Blue","Red"}, 1299);
+        
+        //controller.filter("Blue","Airdopes");
+        
+//        System.out.println(controller.detachItem(3));
+//        System.out.println(controller.detachItem(30));
+//        System.out.println(controller.detachItem("Airdopes"));
+        controller.orderQuick();
         System.out.println(Arrays.toString(controller.available()));
+        controller.filter("Dell", 0, controller.available().length-1);
+        controller.filter("Boat", 0, controller.available().length-1);
+        controller.filter("Adidas", 0, controller.available().length-1);
+        //controller.filter(1, 4);
     }
 }
