@@ -25,11 +25,17 @@ public class App
 //        System.out.println(controller.detachItem(3));
 //        System.out.println(controller.detachItem(30));
 //        System.out.println(controller.detachItem("Airdopes"));
-        controller.orderQuick();
-        System.out.println(Arrays.toString(controller.available()));
-        controller.filter("Dell", 0, controller.available().length-1);
-        controller.filter("Boat", 0, controller.available().length-1);
-        controller.filter("Adidas", 0, controller.available().length-1);
+//        controller.orderQuick();
+//        System.out.println(Arrays.toString(controller.available()));
+//        controller.filter("Dell", 0, controller.available().length-1);
+//        controller.filter("Boat", 0, controller.available().length-1);
+//        controller.filter("Adidas", 0, controller.available().length-1);
         //controller.filter(1, 4);
+        
+        System.out.println(controller.update("15AC2022 Laptop"));
+        System.out.println(controller.update("Airdopes"));
+        System.out.println(controller.update("Casual Shoe"));
+        System.out.println(controller.update("Sneakers"));
+        System.out.println(Arrays.toString(controller.available()));
     }
 }

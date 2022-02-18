@@ -1,6 +1,7 @@
 package application.console.badri.BadriConsoleApplication;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class CommerceController implements CommerceActions 
 {
@@ -117,7 +118,64 @@ public class CommerceController implements CommerceActions
 	@Override
 	public String update(String itemName) {
 		// TODO Auto-generated method stub
-		return null;
+		Scanner scan=new Scanner(System.in);
+		for(int index=0;index<pro.length;index++)
+		{
+			if(pro[index]!=null&&pro[index].getModelName().equals(itemName))
+			{
+				System.out.println(pro[index]);
+				System.out.println("Tell us what to update(name,brand,qty,price,color): ");
+				String criteria=scan.next();
+				criteria=criteria.toLowerCase();
+				switch(criteria)
+				{
+				case "name":
+					System.out.println("Tell us new ModelName: ");
+					String item=scan.next();
+					pro[index].setModelName(item);
+					return item+" has updated as modelName";
+				case "brand":
+					System.out.println("Tell us new brand name: ");
+					String bnd=scan.next();
+					pro[index].setBrand(bnd);
+					return bnd+" has updated as Brand "+itemName;
+				case "qty":
+					System.out.println("Tell us new quantity: ");
+					int q=scan.nextInt();
+					pro[index].setQuantity(q);
+					return q+" has updated as new Quantity "+itemName;
+				case "price":
+					System.out.println("Tell us new cost: ");
+					int c=scan.nextInt();
+					pro[index].setPrice(c);;
+					return c+" has updated as new price of "+itemName;
+				case "color":
+					System.out.println("Available colors are: "+Arrays.toString(pro[index].getColors()));
+					System.out.println("Do you wish to add new color or update existing one: ");
+					String wish=scan.next();
+					if(wish.equalsIgnoreCase("new"))
+					{
+						System.out.println("Tell us new color to add: ");
+						String users=scan.next();
+						String tmp=Arrays.toString(pro[index].getColors())+","+users;
+						pro[index].setColors(tmp.split(","));
+						return users+" color has added newly for "+itemName;
+					}
+					else if(wish.equalsIgnoreCase("modify")) 
+					{
+						System.out.println("Tell us what to modify: ");
+						String what=scan.next();
+						System.out.println("Tell us which you wish to replace: ");
+						String which=scan.next();
+						String tmp=Arrays.toString(pro[index].getColors());
+						tmp.replace(what, which);
+						pro[index].setColors(tmp.split(","));
+						return which+" color has replaced "+what+" on "+itemName;
+					}
+				}
+			}
+		}
+		return itemName+" hasn't found anywhere";
 	}
 	
 	private int qsort(int start,int end)
