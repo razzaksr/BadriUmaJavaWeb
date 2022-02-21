@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 public class CommerceController implements CommerceActions 
 {
-	private Product[] pro=new Product[20];
+	private Product[] pro=new Product[7];
 
 	public CommerceController() {
-		pro= new Product[]{
-				new Product("16GB pendrive", "Sandisk", 20, new String[] {"Black","Red"}, 250),
-				new Product("Airdopes", "Boat", 180, new String[] {"White","Blue","Red"}, 999),
-				new Product("15AC2022 Laptop", "Dell", 45, new String[] {"Grey","Silver","Black"}, 87600),
-				new Product("64GB pendrive", "Transcend", 30, new String[] {"White","Blue","Grey"}, 540),
-				new Product("Sneakers", "Puma", 90, new String[] {"Black","White","Blue","Red"}, 1299),
-		};
+		pro[0] = new Product("16GBpendrive", "Sandisk", 20, new String[] {"Black","Red"}, 250);
+		pro[1] = new Product("Airdopes", "Boat", 180, new String[] {"White","Blue","Red"}, 999);
+		pro[2] = new Product("15AC2022Laptop", "Dell", 45, new String[] {"Grey","Silver","Black"}, 87600);
+		pro[3] = new Product("64GBpendrive", "Transcend", 30, new String[] {"White","Blue","Grey"}, 540);
+		pro[4] = new Product("Sneakers", "Puma", 90, new String[] {"Black","White","Blue","Red"}, 1299);
+		pro[5] = new Product("Smartwatch", "Boat", 190, new String[] {"Black","White","Blue","Red","Green"}, 2399);
+		pro[6] = new Product("Beanbag", "Comfy", 30, new String[] {"Black","White"}, 2100);
 	}
 
 	public CommerceController(Product[] pro) {
