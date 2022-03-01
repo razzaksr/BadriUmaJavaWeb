@@ -2,7 +2,7 @@ package application.console.badri.BadriConsoleApplication;
 
 import java.util.Arrays;
 
-public class Product 
+public class Product implements Comparable<Product>
 {
 	private String modelName;
 	private String brand;
@@ -52,5 +52,10 @@ public class Product
 	}
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+	@Override
+	public int compareTo(Product o) {
+		// TODO Auto-generated method stub
+		return this.quantity.compareTo(o.quantity);
 	}
 }

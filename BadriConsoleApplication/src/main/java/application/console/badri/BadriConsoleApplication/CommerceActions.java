@@ -1,9 +1,11 @@
 package application.console.badri.BadriConsoleApplication;
 
+import java.util.List;
+
 public interface CommerceActions 
 {
 	public String newStock(Product product);
-	public Product[] available();
+	public List<Product> available();
 	public String detachItem(Integer position);
 	public String detachItem(String itemName);
 	public void filter(Integer start,Integer end);

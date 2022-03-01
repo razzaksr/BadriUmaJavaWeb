@@ -45,7 +45,7 @@ public class App
     			break;
     		case 2:
     			System.out.println("List all available items");
-    			System.out.println(Arrays.toString(control.available()));
+    			System.out.println(control.available());
     			break;
     		case 3:
     			System.out.println("Delete item from stock by position or item name");
@@ -79,7 +79,7 @@ public class App
     				break;
     			case "brand":
     				System.out.println("Enter the brand: ");
-    				control.filter(scan.next(), 0, control.available().length-1);
+    				control.filter(scan.next(), 0, control.available().size()-1);
     				break;
     			}
     			break;
