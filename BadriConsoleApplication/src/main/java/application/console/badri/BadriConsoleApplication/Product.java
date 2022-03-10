@@ -1,8 +1,9 @@
 package application.console.badri.BadriConsoleApplication;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Product implements Comparable<Product>
+public class Product implements Comparable<Product>, Serializable
 {
 	private String modelName;
 	private String brand;
