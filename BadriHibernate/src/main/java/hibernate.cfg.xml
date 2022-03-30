@@ -16,6 +16,7 @@
         <property name="hbm2ddl.auto">create</property>
         
         <mapping class="orm.hib.BadriHibernate.session1.Projector"/>
+        <mapping class="orm.hib.BadriHibernate.session2.Mobile"/>
                 
     </session-factory>
 </hibernate-configuration>
