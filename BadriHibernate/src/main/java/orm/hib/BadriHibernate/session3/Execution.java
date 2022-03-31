@@ -37,6 +37,7 @@ public class Execution
 		ses.getTransaction().commit();
 		ses.close();
 		
+		//second level
 		ses=factory.openSession();
 		ses.beginTransaction();
 		e=ses.get(ElectrolRoll.class, 81);
