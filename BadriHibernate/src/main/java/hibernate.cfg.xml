@@ -18,7 +18,8 @@
 <!--         <mapping class="orm.hib.BadriHibernate.session1.Projector"/> -->
 <!--         <mapping class="orm.hib.BadriHibernate.session2.Mobile"/> -->
 <!--         <mapping class="orm.hib.BadriHibernate.session3.ElectrolRoll"/> -->
-		<mapping class="orm.hib.BadriHibernate.session4.Resource"></mapping>
+<!-- 		<mapping class="orm.hib.BadriHibernate.session4.Resource"></mapping> -->
+		<mapping class="orm.hib.BadriHibernate.session5.Item"></mapping>
                 
     </session-factory>
 </hibernate-configuration>
