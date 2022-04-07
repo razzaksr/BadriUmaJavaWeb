@@ -20,8 +20,11 @@
 <!--         <mapping class="orm.hib.BadriHibernate.session3.ElectrolRoll"/> -->
 <!-- 		<mapping class="orm.hib.BadriHibernate.session4.Resource"></mapping> -->
 <!-- 		<mapping class="orm.hib.BadriHibernate.session5.Item"></mapping> -->
-		<mapping class="orm.hib.BadriHibernate.session6.Person"></mapping>
-		<mapping class="orm.hib.BadriHibernate.session6.Vehicle"></mapping>
+<!-- 		<mapping class="orm.hib.BadriHibernate.session6.Person"></mapping> -->
+<!-- 		<mapping class="orm.hib.BadriHibernate.session6.Vehicle"></mapping> -->
+		<mapping class="orm.hib.BadriHibernate.session7.Project"></mapping>	
+		<mapping class="orm.hib.BadriHibernate.session7.Development"></mapping>
+		<mapping class="orm.hib.BadriHibernate.session7.Testing"></mapping>
                 
     </session-factory>
 </hibernate-configuration>
