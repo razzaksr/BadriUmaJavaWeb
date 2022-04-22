@@ -16,6 +16,14 @@ public class Corporate
 	private String[] opennings;
 	private String[] locations;
 	private double ctc;
+	public String gettingOpens()
+	{
+		return Arrays.toString(this.opennings);
+	}
+	public String gettingLocs()
+	{
+		return Arrays.toString(this.locations);
+	}
 	public Corporate() {
 		super();
 		// TODO Auto-generated constructor stub
