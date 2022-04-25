@@ -12,6 +12,13 @@ public class CorporateService
 	@Autowired
 	CorporateRespository repo;
 	
+	public String erasing(int key)
+	{
+		String hai = gettingOneObj(key).getCorpName()+" has deleted";
+		repo.deleteById(key);
+		return hai;
+	}
+	
 	public Optional<Corporate> gettingOne(int key)
 	{
 		return repo.findById(key);

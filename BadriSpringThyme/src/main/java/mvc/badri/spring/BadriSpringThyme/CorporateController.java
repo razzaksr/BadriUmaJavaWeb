@@ -13,7 +13,29 @@ public class CorporateController
 	@Autowired
 	CorporateService serv;
 	
+	@RequestMapping(path="/remove/{week}",method=RequestMethod.GET)
+	public String rem(Model model,@PathVariable("week") int week)
+	{
+		model.addAttribute(serv.erasing(week));
+		return "redirect:/";
+	}
+	
+	@RequestMapping(path="/up",method=RequestMethod.PUT)
+	public String heyTheres(Model model,Corporate object)
+	{
+		model.addAttribute("info", serv.saving(object).getCorpName()+" has Updated");
+		return "redirect:/";
+	}
+	
 	@RequestMapping("/edit/{week}")
+	public String editing(Model model,@PathVariable("week") int week)
+	{
+		System.out.println(serv.gettingOneObj(week));
+		model.addAttribute("obj", serv.gettingOneObj(week));
+		return "Update";
+	}
+	
+	@RequestMapping("/read/{week}")
 	public String readie(Model model,@PathVariable("week") int week)
 	{
 		System.out.println(serv.gettingOneObj(week));
@@ -40,6 +62,6 @@ public class CorporateController
 	public String heyThere(Model model,Corporate object)
 	{
 		model.addAttribute("info", serv.saving(object).getCorpName()+" has Added");
-		return "redirect:/new";
+		return "redirect:/";
 	}
 }
