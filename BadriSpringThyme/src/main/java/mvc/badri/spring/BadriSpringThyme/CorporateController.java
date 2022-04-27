@@ -17,14 +17,14 @@ public class CorporateController
 	public String rem(Model model,@PathVariable("week") int week)
 	{
 		model.addAttribute(serv.erasing(week));
-		return "redirect:/";
+		return "redirect:/home";
 	}
 	
 	@RequestMapping(path="/up",method=RequestMethod.PUT)
 	public String heyTheres(Model model,Corporate object)
 	{
 		model.addAttribute("info", serv.saving(object).getCorpName()+" has Updated");
-		return "redirect:/";
+		return "redirect:/home";
 	}
 	
 	@RequestMapping("/edit/{week}")
@@ -43,7 +43,7 @@ public class CorporateController
 		return "Read";
 	}
 	
-	@RequestMapping(path="/",method=RequestMethod.GET)
+	@RequestMapping(path="/home",method=RequestMethod.GET)
 	public String homie(Model model)
 	{
 		model.addAttribute("every", serv.listing());
@@ -62,6 +62,6 @@ public class CorporateController
 	public String heyThere(Model model,Corporate object)
 	{
 		model.addAttribute("info", serv.saving(object).getCorpName()+" has Added");
-		return "redirect:/";
+		return "redirect:/home";
 	}
 }
