@@ -41,7 +41,7 @@ class BadriSpringThymeApplicationTests {
 		
 		when(repo.findAll()).thenReturn(Stream.of(corp1,corp2,corp3,corp4).toList());
 		
-		assertTrue(service.listing().size()==5);
+		assertTrue(service.listing().size()==4);
 	}
 	@Test
 	public void testList2()
@@ -91,7 +91,7 @@ class BadriSpringThymeApplicationTests {
 		
 		when(repo.findById(10073)).thenReturn(corp2);
 		
-		assertNull(service.gettingOne(10073));
+		assertNotNull(service.gettingOne(10073));
 	}
 	
 	@Test
