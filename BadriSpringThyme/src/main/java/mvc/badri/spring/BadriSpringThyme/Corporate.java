@@ -28,6 +28,14 @@ public class Corporate
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Corporate(int corpId, String corpName, String[] opennings, String[] locations, double ctc) {
+		super();
+		this.corpId = corpId;
+		this.corpName = corpName;
+		this.opennings = opennings;
+		this.locations = locations;
+		this.ctc = ctc;
+	}
 	public Corporate(String corpName, String[] opennings, String[] locations, double ctc) {
 		super();
 		this.corpName = corpName;
