@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import './AddEdit.css';
 import { adding } from '../API';
 
 const initialState = {
@@ -9,6 +8,7 @@ const initialState = {
 }
 
 const AddEdit = () => {
+  
   const [state, setState ] = useState(initialState);
 
   const hey=(eve)=>
@@ -23,10 +23,10 @@ const AddEdit = () => {
   }
 
   const sub=async()=>{
-    alert(JSON.stringify(state))
     const t = await adding(state)
     alert(t.data)
     setState(initialState)
+    window.location.assign("/")
   }
 
   const res=()=>{

@@ -1,13 +1,21 @@
 import React,{useState, useEffect} from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { reading } from '../API';
 import './view.css'
 
 const View = () => {
-  const [users, setUser] = useState();
+  const [users, setUser] = useState({});
 
   const { id } = useParams();
 
-  
+  const calRead=async()=>{
+    const t = await reading(id)
+    setUser(t.data)
+}
+
+useEffect(()=>{
+    calRead()
+},[])
   
   // console.log(id);
   

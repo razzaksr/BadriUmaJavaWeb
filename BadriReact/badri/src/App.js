@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from "./Components/Header";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
+import Edit from "./Pages/Edit";
 
 
 
@@ -21,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element ={<Home/>}/>
           <Route path="/add" element ={<AddEdit/>}/>
-          <Route path="/update/:id" element ={<AddEdit/>}/>
+          <Route path="/update/:id" element ={<Edit/>}/>
           <Route path="/view/:id" element ={<View/>}/>
           <Route path="/about" element ={<About/>}/>
         </Routes>

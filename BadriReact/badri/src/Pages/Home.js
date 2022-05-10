@@ -2,17 +2,29 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import { toast } from 'react-toastify';
+import { deleting, viewing } from '../API';
 
 const Home = () => {
-  const [data, setData] = useState({});
 
-  const onDelete = (id) => {
+  const[all,setAll]=useState([])
+
+  const fun=async()=>{
+    const t = await viewing()
+    setAll(t.data)
+  }
+
+  const onDelete = async(id) => {
     if(window.confirm("are you sure?")){
-      
+      const t = await deleting(id)
+      alert(t.data)
     }
+    else{
+      alert("I've changed my mind")
+    }
+    window.location.assign("/")
   }
   useEffect(() => {
-    
+    fun()
   }, []);
   return (
     <div className={{marginTop: "1000px"}}>
@@ -27,20 +39,20 @@ const Home = () => {
         </tr>
       </thead>
       <tbody>
-        {Object.keys(data).map((id, index) => {
+        {all.map((data,index) => {
           return (
-            <tr key={id}>
-              <th scope='row'>{index + 1}</th>
-              <td>{data[id].name}</td>
-              <td>{data[id].email}</td>
-              <td>{data[id].contact}</td>
+            <tr>
+              <th scope='row'>{data.contId}</th>
+              <td>{data.name}</td>
+              <td>{data.email}</td>
+              <td>{data.contact}</td>
               <td>
-                <Link to={`/update/${id}`}>
-                  <button className='btn btn-edit'>Edit</button>
+                <Link to={`/update/${data.contId}`}>
+                  <button className='btn btn-warning'>Edit</button>
                 </Link>
-                <button className='btn btn-delete' onClick={() => onDelete(id)}>Delete</button>
-                <Link to={`/view/${id}`}>
-                  <button className='btn btn-view'>View</button>
+                <button className='btn btn-danger' onClick={() => onDelete(data.contId)}>Delete</button>
+                <Link to={`/view/${data.contId}`}>
+                  <button className='btn btn-info'>View</button>
                 </Link>
               </td>
             </tr>
