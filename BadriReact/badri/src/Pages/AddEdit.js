@@ -1,121 +1,67 @@
 import React,{useState, useEffect} from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
-import fireDb from '../firebase';
-import { toast } from 'react-toastify';
 import './AddEdit.css';
+import { adding } from '../API';
 
 const initialState = {
   name:"",
   email:"",
-  contact:""
+  contact:0
 }
 
 const AddEdit = () => {
   const [state, setState ] = useState(initialState);
-  const [data, setData] = useState({});
 
-  const {name, email, contact} = state;
-
-  const navigate = useNavigate();
-
-  const {id} = useParams();
-
-  useEffect(() => {
-    fireDb.child("contacts").on("value", (snapshot) => {
-      if(snapshot.val() !==  null){
-        setData({...snapshot.val()});
-      } else {
-        setData({});
+  const hey=(eve)=>
+  {
+    const{name,value}=eve.target
+    setState((old)=>{
+      return{
+        ...old,
+        [name]:value
       }
-    });
-    return () => {
-      setData({});
-    };
-  }, [id]);
+    })
+  }
 
-  useEffect(() => {
-    if(id){
-      setState({...data[id]})
-    }
-    else{
-      setState({...initialState})
-    }
+  const sub=async()=>{
+    alert(JSON.stringify(state))
+    const t = await adding(state)
+    alert(t.data)
+    setState(initialState)
+  }
 
-    return () => {
-      setState({...initialState})
-    };
-  }, [id, data]);
+  const res=()=>{
+    setState(initialState)
+  }
 
-  const handleInputChange = (e) => {
-    const {name, value} = e.target;
-    setState({...state, [name]: value})
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(!name || !email || !contact){
-      toast.error("Please fill all fields")
-    } else{
-      if(!id){
-        fireDb.child("contacts").push(state, (err) => {
-          if(err){
-            toast.error(err)
-          }else {
-            toast.success("Successfully added")
-          }
-        });
-        setTimeout(() => navigate("/"), 500);
-      }
-      else{
-        fireDb.child(`contacts/${id}`).set(state, (err) => {
-          if(err){
-            toast.error(err)
-          }else {
-            toast.success("Successfully updated")
-          }
-        });
-        setTimeout(() => navigate("/"), 500);
-      }
-      }
-  };
-  return (
-    <div style={{ marginTop: "100px" }}>
-      <form style={{
-        margin: "auto",
-        padding: "15px",
-        maxWidth: "400px",
-        alignContent: "center",
-      }} onSubmit={handleSubmit}>
-        <label htmlFor='name'>Name</label>
-        <input 
-        type="text"
-        id='name'
-        name='name'
-        placeholder='Your Name'
-        value={name || ""}
-        onChange={handleInputChange}
-        />
-        <label htmlFor='email'>Email</label>
-        <input 
-        type="email"
-        id='email'
-        name='email'
-        placeholder='Your Email'
-        value={email || ""}
-        onChange={handleInputChange}
-        />
-        <label htmlFor='contact'>Contact</label>
-        <input 
-        type="number"
-        id='contact'
-        name='contact'
-        placeholder='Your contact'
-        value={contact || ""}
-        onChange={handleInputChange}
-        />
-        <input type="submit" value={id ? "Update" : "Save"}/>
-      </form>
-    </div>
+  return(
+    <>
+      <div className='container-fluid'>
+        <div className='row justify-content-center'>
+          <div className='col-lg-6 col-md-8 col-sm-12 shadow p-3'>
+            <div className='form-group'>
+              <label>Name of the contact</label>
+              <input type="text" name="name" value={state.name} className="form-control" onChange={hey}/>
+            </div>
+            <div className='form-group'>
+              <label>Mobile number of the contact</label>
+              <input type="text" name="contact" value={state.contact} className="form-control" onChange={hey}/>
+            </div>
+            <div className='form-group'>
+              <label>Email of the contact</label>
+              <input type="email" name="email" value={state.email} className="form-control" onChange={hey}/>
+            </div>
+            <div className='row justify-content-around'>
+              <button className='btn btn-outline-success col-1' onClick={sub}>
+                <i class="bi bi-cloud-plus-fill"></i>
+              </button>
+              <button className='btn btn-outline-dark col-1' onClick={res}>
+                <i class="bi bi-x-circle-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 

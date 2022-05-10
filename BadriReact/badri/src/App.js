@@ -7,6 +7,8 @@ import About from './Pages/About';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "./Components/Header";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 
 
 

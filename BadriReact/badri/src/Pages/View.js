@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import fireDb from "../firebase";
 import { useParams, Link } from 'react-router-dom';
 import './view.css'
 
@@ -8,21 +7,7 @@ const View = () => {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    fireDb
-      .child(`contacts/${id}`)
-      .get()
-      .then((snapshot) => {
-        if(snapshot.exists()){
-          setUser({ ...snapshot.val() });
-        }
-        else{
-          setUser({});
-        }
-    });
-    
-  }, [id]);
-
+  
   
   // console.log(id);
   
